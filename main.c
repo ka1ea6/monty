@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
 	if (argc < 2)
 	{
-		printf("USAGE: monty file\n");
+		perror("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	file = fopen(filename, "r");
 	if (!file)
 	{
-		printf("Error: Can't open file %s\n", filename);
+		perror("Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 
