@@ -2,6 +2,9 @@
 #define _MAIN_H_
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -32,6 +35,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* utilities */
+
+void parse_file(FILE *file);
+void trim(char *);
+
+/* stack ops */
+
+void push(stack_t **stack, unsigned int);
+void pop(stack_t **stack, unsigned int);
+void pall(stack_t **stack, unsigned int);
+void pint(stack_t **stack, unsigned int);
+void swap(stack_t **stack, unsigned int);
+void add(stack_t **stack, unsigned int);
 
 
-#endif _MAIN_H_
+#endif
