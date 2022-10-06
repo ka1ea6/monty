@@ -7,7 +7,7 @@ void parse_file(FILE *file)
 	int j;
 	char *line;
 	char *token1, *token2;
-	stack_t *head;
+	stack_t *head = NULL;
 	instruction_t fun_arr[] = {
 		{"push", push},
 		{"pall", pall},
@@ -36,6 +36,7 @@ void parse_file(FILE *file)
 		}
 	}
 
+	free_stack(head);
 	free(line);
 	fclose(file);
 }

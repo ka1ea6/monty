@@ -38,8 +38,7 @@ typedef struct instruction_s
 /* utilities */
 
 void parse_file(FILE *file);
-void trim(char *);
-
+void free_stack(stack_t *stack);
 /* stack ops */
 
 void push(stack_t **stack, unsigned int);
