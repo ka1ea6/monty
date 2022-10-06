@@ -2,8 +2,6 @@
 void parse_file(FILE *file)
 {
 
-	ssize_t nread;
-	size_t len = 0;
 	int j;
 	char *line;
 	char *token1, *token2;
@@ -14,7 +12,8 @@ void parse_file(FILE *file)
 		{"pint", pint}
 	};
 
-	while ((nread = getline(&line, &len, file)) != -1)
+	line = malloc(sizeof(char) * 100);
+	while (fgets(line, 100, file))
 	{
 		token1 = strtok(line, " \t\r\n\v\f$");
 		token2 = strtok(NULL, " \t\r\n\v\f$");
