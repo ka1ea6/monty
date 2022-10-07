@@ -1,4 +1,13 @@
 #include "monty.h"
+
+/**
+ * parse_file - parses a file line by line
+ *
+ * @file - pointer to a file object.
+ * 
+ * Return: Nothing.
+ */
+
 void parse_file(FILE *file)
 {
 

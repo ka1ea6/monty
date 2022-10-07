@@ -1,5 +1,14 @@
 #include "monty.h"
 
+/**
+ * push - pushes an element to the stack
+ *
+ * @stack: pointer to the head of the stack
+ * @line_number: number found on the line
+ *
+ * Return: Nothing.
+ */
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
@@ -22,6 +31,15 @@ void push(stack_t **stack, unsigned int line_number)
 
 }
 
+/**
+ * pall - prints all the elements found in the stack
+ *
+ * @stack: pointer to the head of the stack
+ * @line_number: unused variable.
+ *
+ * Return: Nothing.
+ */
+
 void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	size_t size;
@@ -40,6 +58,15 @@ void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	}
 	free(temp);
 }
+
+/**
+ * pint - prints the first element of a stack
+ *
+ * @stack: pointer to the head of the stack.
+ * @line_number: the line of the current instruction.
+ *
+ * Return: nothing.
+ */
 
 void pint(stack_t **stack, unsigned int line_number)
 {
