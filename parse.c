@@ -47,6 +47,11 @@ void parse_file(FILE *file)
 					fun_arr[j].f(&head, line_number);
 				line_number++;
 			}
+			else if (strcmp(token1, "nop") == 0)
+			{
+				line_number++;
+				continue;
+			}
 			else
 			{
 				free_stack(head);
