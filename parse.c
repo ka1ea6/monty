@@ -31,7 +31,7 @@ void parse_file(FILE *file)
 		if (token1)
 		{
 			j = 0;
-			whilei (j < 3 && strcmp(token1, fun_arr[j].opcode) != 0)
+			while (j < 3 && strcmp(token1, fun_arr[j].opcode) != 0)
 			{
 				j++;
 			}
