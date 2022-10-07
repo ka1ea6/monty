@@ -90,8 +90,10 @@ void pint(stack_t **stack, unsigned int line_number)
 
 void pop(stack_t **stack, unsigned int line_number)
 {
+
 	stack_t *temp;
 
+	printf("here too \n");
 	if (!(*stack))
 	{
 		fprintf(stderr, "L<%d>: can't pop an empty stack", line_number);
@@ -111,3 +113,34 @@ void pop(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * swap - swaps the top two elements of the stack
+ *
+ * @stack: pointer to the top of the stack
+ * @line_number: line number.
+ *
+ * Return: Nothing.
+ */
+
+void swap(stack_t **stack, unsigned int line_number)
+{
+
+	if (!(*stack))
+	{
+		fprintf(stderr, "L<%d>: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (!(*stack)->next)
+	{
+		fprintf(stderr, "L<%d>: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->prev = (*stack)->next;
+	(*stack)->next = (*stack)->next->next;
+	(*stack)->prev->next = (*stack);
+	(*stack)->prev->prev = NULL;
+
+	(*stack) = (*stack)->prev;
+
+}
+	

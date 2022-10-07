@@ -19,7 +19,8 @@ void parse_file(FILE *file)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{"pop", pop}
+		{"pop", pop},
+		{"swap", swap}
 	};
 
 	fun_arr_length = (int) sizeof(fun_arr)/sizeof(fun_arr[0]);
@@ -41,7 +42,7 @@ void parse_file(FILE *file)
 					fun_arr[j].f(&head, atoi(token2));
 				else if (strcmp(fun_arr[j].opcode, "pall") == 0)
 					fun_arr[j].f(&head, 0);
-				else if (strcmp(fun_arr[j].opcode, "pint") == 0 || strcmp(fun_arr[j].opcode, "pop") == 0)
+				else if (strcmp(fun_arr[j].opcode, "pint") == 0 || strcmp(fun_arr[j].opcode, "pop") == 0 || strcmp(fun_arr[j].opcode, "swap") == 0)
 					fun_arr[j].f(&head, line_number);
 				line_number++;
 			}
