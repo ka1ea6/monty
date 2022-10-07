@@ -38,6 +38,7 @@ void parse_file(FILE *file)
 			}
 			else
 			{
+				free_stack(head);
 				fprintf(stderr, "L<%d>: unknown instruction %s\n", line_number, token1);
 				exit(EXIT_FAILURE);
 			}
