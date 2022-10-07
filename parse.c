@@ -11,16 +11,18 @@
 void parse_file(FILE *file)
 {
 
-	int j, line_number;
+	int j, line_number, fun_arr_length;
 	char *line;
 	char *token1, *token2;
 	stack_t *head = NULL;
 	instruction_t fun_arr[] = {
 		{"push", push},
 		{"pall", pall},
-		{"pint", pint}
+		{"pint", pint},
+		{"pop", pop}
 	};
 
+	fun_arr_length = (int) sizeof(fun_arr)/sizeof(fun_arr[0]);
 	line = malloc(sizeof(char) * 100);
 	line_number = 1;
 	while (fgets(line, 100, file))
@@ -31,17 +33,17 @@ void parse_file(FILE *file)
 		if (token1)
 		{
 			j = 0;
-			while (j < 3 && strcmp(token1, fun_arr[j].opcode) != 0)
+			while (j < fun_arr_length && strcmp(token1, fun_arr[j].opcode) != 0)
 			{
 				j++;
 			}
-			if (j < 3)
+			if (j < fun_arr_length)
 			{
 				if (token2)
 					fun_arr[j].f(&head, atoi(token2));
 				else if (strcmp(fun_arr[j].opcode, "pall") == 0)
 					fun_arr[j].f(&head, 0);
-				else if (strcmp(fun_arr[j].opcode, "pint") == 0)
+				else if (strcmp(fun_arr[j].opcode, "pint") == 0 || strcmp(fun_arr[j].opcode, "pop") == 0)
 					fun_arr[j].f(&head, line_number);
 				line_number++;
 			}
