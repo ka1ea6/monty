@@ -100,8 +100,13 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	temp = *stack;
 
-	*stack = temp->next;
-	(*stack)->prev = NULL;
+	if (temp->next)
+	{
+		*stack = temp->next;
+		(*stack)->prev = NULL;
+	}
+	else
+		*stack = NULL;
 
 	free(temp);
 }

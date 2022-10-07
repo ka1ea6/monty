@@ -27,16 +27,14 @@ void parse_file(FILE *file)
 	line_number = 1;
 	while (fgets(line, 100, file))
 	{
-		token1 = strtok(line, " \t\r\n\v\f$");
-		token2 = strtok(NULL, " \t\r\n\v\f$");
+		token1 = strtok(line, " \t\r\n\v\f$;");
+		token2 = strtok(NULL, " \t\r\n\v\f$;");
 
 		if (token1)
 		{
 			j = 0;
 			while (j < fun_arr_length && strcmp(token1, fun_arr[j].opcode) != 0)
-			{
 				j++;
-			}
 			if (j < fun_arr_length)
 			{
 				if (token2)
