@@ -22,16 +22,18 @@ void parse_file(FILE *file)
 		if (token1)
 		{
 			j = 0;
-			while(j < 2 && strcmp(token1, fun_arr[j].opcode) != 0)
+			while(j < 3 && strcmp(token1, fun_arr[j].opcode) != 0)
 			{
 				j++;
 			}
-			if (j < 2)
+			if (j < 3)
 			{
 				if (token2)
 					fun_arr[j].f(&head, atoi(token2));
 				else if (strcmp(fun_arr[j].opcode, "pall") == 0)
 					fun_arr[j].f(&head, 0);
+				else if (strcmp(fun_arr[j].opcode, "pint") == 0)
+					fun_arr[j].f(&head, line_number);
 				line_number++;
 			}
 			else
