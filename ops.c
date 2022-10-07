@@ -16,7 +16,11 @@ void push(stack_t **stack, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 
 	if (!new)
-		return;
+	{
+		fprintf(stderr, "Error malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
 	new->n = line_number;
 	new->prev = NULL;
 	new->next = NULL;
@@ -46,6 +50,12 @@ void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	stack_t *temp;
 
 	temp = malloc(sizeof(stack_t));
+	if (!temp)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
 	temp = *stack;
 
 	size = 0;
@@ -72,7 +82,7 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (!(*stack))
 	{
-		fprintf(stderr, "L<%d>: can't pint, stack empty", line_number);
+		fprintf(stderr, "L<%d>: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -96,7 +106,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	printf("here too \n");
 	if (!(*stack))
 	{
-		fprintf(stderr, "L<%d>: can't pop an empty stack", line_number);
+		fprintf(stderr, "L<%d>: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -127,12 +137,12 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (!(*stack))
 	{
-		fprintf(stderr, "L<%d>: can't swap, stack too short", line_number);
+		fprintf(stderr, "L<%d>: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (!(*stack)->next)
 	{
-		fprintf(stderr, "L<%d>: can't swap, stack too short", line_number);
+		fprintf(stderr, "L<%d>: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->prev = (*stack)->next;
@@ -143,4 +153,37 @@ void swap(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->prev;
 
 }
-	
+
+
+/**
+ * add - adds the top two elements of the stack
+ *
+ * @stack: pointer to the head of the stack
+ * @line_number: line number.
+ *
+ * Return: Nothing.
+ */
+
+void add(stack_t **stack, unsigned int line_number)
+{
+	int sum;
+
+	if (!(*stack))
+	{
+		fprintf(stderr, "L<%d>: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (!(*stack)->next)
+	{
+		fprintf(stderr, "L<%d>: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	sum = 0;
+	sum += (*stack)->n;
+	sum += (*stack)->next->n;
+
+	(*stack)->next->n = sum;
+	(*stack)->next->prev = NULL;
+
+	(*stack) = (*stack)->next;
+}
