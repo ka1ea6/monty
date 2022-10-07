@@ -2,7 +2,7 @@
 void parse_file(FILE *file)
 {
 
-	int j;
+	int j, line_number;
 	char *line;
 	char *token1, *token2;
 	stack_t *head = NULL;
@@ -13,6 +13,7 @@ void parse_file(FILE *file)
 	};
 
 	line = malloc(sizeof(char) * 100);
+	line_number = 1;
 	while (fgets(line, 100, file))
 	{
 		token1 = strtok(line, " \t\r\n\v\f$");
@@ -31,6 +32,12 @@ void parse_file(FILE *file)
 					fun_arr[j].f(&head, atoi(token2));
 				else if (strcmp(fun_arr[j].opcode, "pall") == 0)
 					fun_arr[j].f(&head, 0);
+				line_number++;
+			}
+			else
+			{
+				fprintf(stderr, "L<%d>: unknown instruction %s.\n", line_number, token1);
+				exit(EXIT_FAILURE);
 			}
 		}
 	}
