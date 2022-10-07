@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * main - starting point of the interpreter
