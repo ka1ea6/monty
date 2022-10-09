@@ -14,7 +14,6 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	stack_t *temp;
 
-	printf("here too \n");
 	if (!(*stack))
 	{
 		fprintf(stderr, "L<%d>: can't pop an empty stack\n", line_number);
