@@ -45,7 +45,7 @@ void get_token(char *line, int *line_number, stack_t **head);
 void get_op(char *token1, int *line_number,  stack_t **head);
 int check_op(char *opcode);
 void free_stack(stack_t *stack);
-
+int stack_size(stack_t *stack);
 int _isalpha(int c);
 /* stack ops */
 
@@ -60,6 +60,7 @@ void div_stack(stack_t **stack, unsigned int);
 void mul_stack(stack_t **stack, unsigned int);
 void mod_stack(stack_t **stack, unsigned int);
 void pchar(stack_t **stack, unsigned int);
+void pstr(stack_t **stack, unsigned int);
 
 
 #endif

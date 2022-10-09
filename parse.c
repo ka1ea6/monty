@@ -72,7 +72,7 @@ void get_op(char *token1, int *line_number,  stack_t **head)
 	instruction_t fun_arr[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap},
 		{"add", add_stack}, {"sub", sub_stack}, {"div", div_stack}, {"mul", mul_stack},
-		{"mod", mod_stack}, {"pchar", pchar}
+		{"mod", mod_stack}, {"pchar", pchar}, {"pstr", pstr}
 	};
 
 	fun_arr_length = (int) sizeof(fun_arr) / sizeof(fun_arr[0]);

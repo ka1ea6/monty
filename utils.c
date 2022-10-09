@@ -20,6 +20,37 @@ void free_stack(stack_t *stack)
 	}
 }
 
+/**
+ * stack_size - gets the size of a stack.
+ *
+ * @stack: pointer to stack to be freed.
+ *
+ * Return: size of the stack if successful, -1 otherwise.
+ */
+
+int stack_size(stack_t *stack)
+{
+	stack_t *temp;
+	int size;
+
+	temp = malloc(sizeof(stack_t));
+	if (!temp)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+
+	temp = (*stack);
+	size = 0;
+	while (temp)
+	{
+		temp = temp->next;
+		size++;
+	}
+
+	return (size);
+}
+
 
 /**
  * _isalpha - shows 1 if the input is an alphabet,
