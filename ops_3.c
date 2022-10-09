@@ -2,9 +2,7 @@
 
 
 /**
- * mul - multiplies the second top element of the stack with
- * the top element of the stack
- *
+ * pchar - prints the char at the top of the stack
  *
  * @stack: pointer to the head of the stack
  * @line_number: line number.

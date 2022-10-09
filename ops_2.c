@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * add - adds the top two elements of the stack
+ * add_stack - adds the top two elements of the stack
  *
  * @stack: pointer to the head of the stack
  * @line_number: line number.
@@ -30,7 +30,7 @@ void add_stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * sub - subtracts the top element of the stack from the
+ * sub_stack - subtracts the top element of the stack from the
  * second top element.
  *
  * @stack: pointer to the head of the stack
@@ -95,7 +95,7 @@ void div_stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mul - multiplies the second top element of the stack with
+ * mul_stack - multiplies the second top element of the stack with
  * the top element of the stack
  *
  *
@@ -114,7 +114,7 @@ void mul_stack(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-
+	
 	product = 0;
 	product += (*stack)->next->n;
 	product *= (*stack)->n;
