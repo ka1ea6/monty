@@ -12,7 +12,6 @@
 int main(int argc, char *argv[])
 {
 	char *filename;
-	FILE *file;
 
 	if (argc < 2)
 	{
