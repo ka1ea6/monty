@@ -52,7 +52,7 @@ void get_token(char *line, int *line_number, stack_t **head)
 	token1 = strtok(line, " \t\r\n\v\f$;");
 	token2 = strtok(NULL, " \t\r\n\v\f$;");
 
-	get_op(token1, token2, line_number, head);
+	get_op(token1, line_number, head);
 }
 
 /**
