@@ -61,7 +61,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	diff += (*stack)->n;
 	diff += (*stack)->next->n;
 
-	(*stack)->next->n = sum;
+	(*stack)->next->n = diff;
 	(*stack)->next->prev = NULL;
 
 	(*stack) = (*stack)->next;
