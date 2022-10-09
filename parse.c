@@ -86,7 +86,7 @@ void get_op(char *token1, char *token2, int *line_number,  stack_t **head)
 			j++;
 		if (j < fun_arr_length)
 		{
-			if (token2 && atoi(token2) != 0)
+			if (token2)
 				fun_arr[j].f(head, atoi(token2));
 			else if (check_op(fun_arr[j].opcode))
 				fun_arr[j].f(head, (*line_number));
@@ -99,10 +99,12 @@ void get_op(char *token1, char *token2, int *line_number,  stack_t **head)
 		else
 		{
 			free_stack(*head);
-			fprintf(stderr, "L<%d>: unknown instruction %s\n", *line_number, token1);
+			fprintf(stderr, "L%d: unknown instruction %s\n", *line_number, token1);
 			exit(EXIT_FAILURE);
 		}
 	}
+	else
+		(*line_number)++;
 }
 
 /**
