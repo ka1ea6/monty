@@ -13,12 +13,7 @@ void add(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
-	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	if (!(*stack)->next)
+	if (!(*stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
@@ -35,7 +30,8 @@ void add(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * sub - adds the top two elements of the stack
+ * sub - subtracts the top element of the stack from the
+ * second top element.
  *
  * @stack: pointer to the head of the stack
  * @line_number: line number.
@@ -47,12 +43,7 @@ void sub(stack_t **stack, unsigned int line_number)
 {
 	int diff;
 
-	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	if (!(*stack)->next)
+	if (!(*stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
@@ -62,6 +53,41 @@ void sub(stack_t **stack, unsigned int line_number)
 	diff += (*stack)->next->n;
 
 	(*stack)->next->n = diff;
+	(*stack)->next->prev = NULL;
+
+	(*stack) = (*stack)->next;
+
+}
+
+/**
+ * div - divides the second top element by the top
+ * element of the stack
+ *
+ * @stack: pointer to the head of the stack
+ * @line_number: line number.
+ *
+ * Return: Nothing.
+ */
+
+void div(stack_t **stack, unsigned int line_number)
+{
+	int quotient;
+
+	if (!(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero", line_number);
+		exit(EXIT_FAILURE);
+	}
+	quotient = 0;
+	quotient += (*stack)->next->n;
+	quotient /= (*stack)->n;
+
+	(*stack)->next->n = quotient;
 	(*stack)->next->prev = NULL;
 
 	(*stack) = (*stack)->next;
