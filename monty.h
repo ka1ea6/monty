@@ -37,7 +37,10 @@ typedef struct instruction_s
 
 /* utilities */
 
-void parse_file(FILE *file);
+void parse_file(char *filename);
+void get_token(char *line, int *line_number, stack_t **head);
+void get_op(char *token1, char *token2, int *line_number,  stack_t **head);
+int check_op(char *opcode);
 void free_stack(stack_t *stack);
 /* stack ops */
 

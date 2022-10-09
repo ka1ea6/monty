@@ -22,15 +22,8 @@ int main(int argc, char *argv[])
 
 
 	filename = argv[1];
-	file = fopen(filename, "r");
-	if (!file)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		exit(EXIT_FAILURE);
-	}
+	parse_file(filename);
 
-
-	parse_file(file);
-	exit(EXIT_SUCCESS);
+	return (0);
 }
 
