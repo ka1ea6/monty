@@ -107,23 +107,19 @@ void div_stack(stack_t **stack, unsigned int line_number)
 
 void mul_stack(stack_t **stack, unsigned int line_number)
 {
-	int quotient;
+	int product;
 
 	if (!(*stack) || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero", line_number);
-		exit(EXIT_FAILURE);
-	}
-	quotient = 0;
-	quotient += (*stack)->next->n;
-	quotient *= (*stack)->n;
+	
+	product = 0;
+	product += (*stack)->next->n;
+	product *= (*stack)->n;
 
-	(*stack)->next->n = quotient;
+	(*stack)->next->n = product;
 	(*stack)->next->prev = NULL;
 
 	(*stack) = (*stack)->next;

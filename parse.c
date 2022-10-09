@@ -71,7 +71,7 @@ void get_op(char *token1, int *line_number,  stack_t **head)
 
 	instruction_t fun_arr[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap},
-		{"add", add_stack}, {"sub", sub_stack}, {"div", div_stack}, {"div", mul_stack},
+		{"add", add_stack}, {"sub", sub_stack}, {"div", div_stack}, {"mul", mul_stack},
 		{"mod", mod_stack},
 	};
 
