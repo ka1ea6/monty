@@ -78,7 +78,7 @@ void get_op(char *token1, char *token2, int *line_number,  stack_t **head)
 		{"add", add}
 	};
 
-	fun_arr_length = (int) sizeof(fun_arr)/sizeof(fun_arr[0]);
+	fun_arr_length = (int) sizeof(fun_arr) / sizeof(fun_arr[0]);
 	if (token1)
 	{
 		j = 0;
@@ -107,9 +107,9 @@ void get_op(char *token1, char *token2, int *line_number,  stack_t **head)
 
 /**
 * check_op - checks type o fop for type of arg passed.
-* 
+*
 * @opcode: opcode to be checked.
-* 
+*
 * Return: 1 if opcode in switch, 0 otherwise.
 */
 
