@@ -67,7 +67,8 @@ void get_token(char *line, int *line_number, stack_t **head)
 
 void get_op(char *token1, char *token2, int *line_number,  stack_t **head)
 {
-	int j;
+	int j, fun_arr_length;
+
 	instruction_t fun_arr[] = {
 		{"push", push},
 		{"pall", pall},
@@ -77,6 +78,7 @@ void get_op(char *token1, char *token2, int *line_number,  stack_t **head)
 		{"add", add}
 	};
 
+	fun_arr_length = (int) sizeof(fun_arr) / sizeof(fun_arr[0]);
 	if (token1)
 	{
 		j = 0;
@@ -93,12 +95,11 @@ void get_op(char *token1, char *token2, int *line_number,  stack_t **head)
 		else if (strcmp(token1, "nop") == 0)
 		{
 			(*line_number)++;
-			continue;
 		}
 		else
 		{
-			free_stack(head);
-			fprintf(stderr, "L<%d>: unknown instruction %s\n", line_number, token1);
+			free_stack(*head);
+			fprintf(stderr, "L<%d>: unknown instruction %s\n", *line_number, token1);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -106,22 +107,24 @@ void get_op(char *token1, char *token2, int *line_number,  stack_t **head)
 
 /**
 * check_op - checks type o fop for type of arg passed.
-* 
+*
 * @opcode: opcode to be checked.
-* 
+*
 * Return: 1 if opcode in switch, 0 otherwise.
 */
 
 int check_op(char *opcode)
 {
-	switch(opcode)
-	{
-		case "pint":
-		case "pop":
-		case "swap":
-		case "add":
-			return 1;
-		default:
-			return 0;
-	}
+	if (strcmp(opcode, "pall") == 0)
+		return (1);
+	else if (strcmp(opcode, "pint") == 0)
+		return (1);
+	else if (strcmp(opcode, "pop") == 0)
+		return (1);
+	else if (strcmp(opcode, "swap") == 0)
+		return (1);
+	else if (strcmp(opcode, "add") == 0)
+		return (1);
+	else
+		return (0);
 }
