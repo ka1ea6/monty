@@ -78,7 +78,7 @@ void get_op(char *token1, int *line_number,  stack_t **head)
 		{"add", add_stack},
 		{"sub", sub_stack},
 		{"div", div_stack},
-		{"div", mul_stack},
+		{"mul", mul_stack},
 	};
 
 	fun_arr_length = (int) sizeof(fun_arr) / sizeof(fun_arr[0]);
