@@ -56,7 +56,7 @@ void pint(stack_t **stack, unsigned int);
 void swap(stack_t **stack, unsigned int);
 void add(stack_t **stack, unsigned int);
 void sub(stack_t **stack, unsigned int);
-void div(stack_t **stack, unsigned int);
+void div_stack(stack_t **stack, unsigned int);
 
 
 #endif

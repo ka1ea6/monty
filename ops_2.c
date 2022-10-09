@@ -60,7 +60,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - divides the second top element by the top
+ * div_stack - divides the second top element by the top
  * element of the stack
  *
  * @stack: pointer to the head of the stack
@@ -69,7 +69,7 @@ void sub(stack_t **stack, unsigned int line_number)
  * Return: Nothing.
  */
 
-void div(stack_t **stack, unsigned int line_number)
+void div_stack(stack_t **stack, unsigned int line_number)
 {
 	int quotient;
 
