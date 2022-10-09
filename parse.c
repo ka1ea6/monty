@@ -86,7 +86,7 @@ void get_op(char *token1, int *line_number,  stack_t **head)
 			fun_arr[j].f(head, (*line_number));
 			(*line_number)++;
 		}
-		else if (strcmp(token1, "nop") == 0)
+		else if (strcmp(token1, "nop") == 0 || token1[0]  == '#')
 		{
 			(*line_number)++;
 		}
