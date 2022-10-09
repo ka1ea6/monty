@@ -41,7 +41,7 @@ void pchar(stack_t **stack, unsigned int line_number)
  * Return: Nothing.
  */
 
-void pstr(stack_t **stack, unsigned int line_number)
+void pstr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	int num;
     stack_t *temp;
@@ -49,7 +49,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 
 	if (!(*stack))
 	{
-        printf("\n");
+        	printf("\n");
 		return;
 	}
 	
@@ -80,5 +80,10 @@ void pstr(stack_t **stack, unsigned int line_number)
 			num++;
 		}
 	}
+
+	printf("%s\n", str);
+
+	free(temp);
+	free(str);
 
 }
