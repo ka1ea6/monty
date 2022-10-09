@@ -40,7 +40,7 @@ int stack_size(stack_t *stack)
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*stack);
+	temp = (stack);
 	size = 0;
 	while (temp)
 	{
