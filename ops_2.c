@@ -9,7 +9,7 @@
  * Return: Nothing.
  */
 
-void add(stack_t **stack, unsigned int line_number)
+void add_stack(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
@@ -39,7 +39,7 @@ void add(stack_t **stack, unsigned int line_number)
  * Return: Nothing.
  */
 
-void sub(stack_t **stack, unsigned int line_number)
+void sub_stack(stack_t **stack, unsigned int line_number)
 {
 	int diff;
 
@@ -86,6 +86,42 @@ void div_stack(stack_t **stack, unsigned int line_number)
 	quotient = 0;
 	quotient += (*stack)->next->n;
 	quotient /= (*stack)->n;
+
+	(*stack)->next->n = quotient;
+	(*stack)->next->prev = NULL;
+
+	(*stack) = (*stack)->next;
+
+}
+
+/**
+ * mul - multiplies the second top element of the stack with
+ * the top element of the stack
+ *
+ *
+ * @stack: pointer to the head of the stack
+ * @line_number: line number.
+ *
+ * Return: Nothing.
+ */
+
+void mul_stack(stack_t **stack, unsigned int line_number)
+{
+	int quotient;
+
+	if (!(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero", line_number);
+		exit(EXIT_FAILURE);
+	}
+	quotient = 0;
+	quotient += (*stack)->next->n;
+	quotient *= (*stack)->n;
 
 	(*stack)->next->n = quotient;
 	(*stack)->next->prev = NULL;

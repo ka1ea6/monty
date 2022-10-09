@@ -54,9 +54,10 @@ void pop(stack_t **stack, unsigned int);
 void pall(stack_t **stack, unsigned int);
 void pint(stack_t **stack, unsigned int);
 void swap(stack_t **stack, unsigned int);
-void add(stack_t **stack, unsigned int);
-void sub(stack_t **stack, unsigned int);
+void add_stack(stack_t **stack, unsigned int);
+void sub_stack(stack_t **stack, unsigned int);
 void div_stack(stack_t **stack, unsigned int);
+void mul_stack(stack_t **stack, unsigned int);
 
 
 #endif
