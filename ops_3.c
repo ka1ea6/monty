@@ -21,15 +21,15 @@ void pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pchar, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	
-    num = atoi(token2)
+	num = atoi(token2);
+	printf("%d\n", num);
 
-    if (num < 0 || num > 127)
-    {
-        fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
-        exit(EXIT_FAILURE);
-    }
-	
-    printf("%c", num);
+	if (num < 0 || num > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%c", num);
 
 }
