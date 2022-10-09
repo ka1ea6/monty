@@ -114,7 +114,7 @@ void mul_stack(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	product = 0;
 	product += (*stack)->next->n;
 	product *= (*stack)->n;
