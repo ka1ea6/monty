@@ -59,6 +59,7 @@ void sub_stack(stack_t **stack, unsigned int);
 void div_stack(stack_t **stack, unsigned int);
 void mul_stack(stack_t **stack, unsigned int);
 void mod_stack(stack_t **stack, unsigned int);
+void pchar(stack_t **stack, unsigned int);
 
 
 #endif
