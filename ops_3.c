@@ -21,8 +21,8 @@ void pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pchar, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	num = atoi(token2);
-	printf("%d\n", num);
+	
+	num = (*stack)->n;
 
 	if (num < 0 || num > 127)
 	{
@@ -30,6 +30,6 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%c", num);
+	printf("%c\n", num);
 
 }
